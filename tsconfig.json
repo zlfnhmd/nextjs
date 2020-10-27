@@ -20,6 +20,10 @@
     "sourceMap": true,
     "strict": true,
     "target": "esnext",
+    "paths": {
+      "@apps/*": ["apps/*"],
+      "@layouts/*": ["layouts/*"]
+    }
   },
   "include": [
     "next-env.d.ts",

@@ -2,16 +2,16 @@ import React from 'react';
 import Head from 'next/head';
 import styles from './default.module.css';
 
-const siteTitle = 'Giphy Generator';
-const siteDescription = 'Generate random gifs from giphy api';
+const siteTitle = 'Sample NextJs App';
+const siteDescription = 'Nextjs app setup with with an opiniated page and store model';
 
-interface DefaultProps {
+interface DefaultLayoutProps {
   children: React.ReactNode;
 }
 
-export const Default = (props: DefaultProps) => {
+export const DefaultLayout = (props: DefaultLayoutProps) => {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <link rel='icon' href='/favicon.ico' />
         <meta name='description' content={siteDescription} />
@@ -24,12 +24,13 @@ export const Default = (props: DefaultProps) => {
         <meta name='og:title' content={siteTitle} />
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
-      <main className={styles.main}>{props.children}</main>
+      <main className={styles.container}>{props.children}</main>
       <style jsx global>{`
         body {
           margin: 0px;
+          background-color: black;
         }
       `}</style>
-    </div>
+    </>
   );
 };
