@@ -1,15 +1,20 @@
 import React from 'react';
 import Head from 'next/head';
-import styles from './layout.module.css';
+import styles from './default.module.css';
 
-export const siteTitle = 'Next.js Sample Website';
+const siteTitle = 'Giphy Generator';
+const siteDescription = 'Generate random gifs from giphy api';
 
-export default function Layout() {
+interface DefaultProps {
+  children: React.ReactNode;
+}
+
+export const Default = (props: DefaultProps) => {
   return (
     <div className={styles.container}>
       <Head>
         <link rel='icon' href='/favicon.ico' />
-        <meta name='description' content='Learn how to build a personal website using Next.js' />
+        <meta name='description' content={siteDescription} />
         <meta
           property='og:image'
           content={`https://og-image.now.sh/${encodeURI(
@@ -19,6 +24,12 @@ export default function Layout() {
         <meta name='og:title' content={siteTitle} />
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
+      <main className={styles.main}>{props.children}</main>
+      <style jsx global>{`
+        body {
+          margin: 0px;
+        }
+      `}</style>
     </div>
   );
-}
+};
